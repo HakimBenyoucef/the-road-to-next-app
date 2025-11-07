@@ -1,0 +1,29 @@
+{
+  // Format automatiquement à la sauvegarde
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    // Exécute ESLint fix à la sauvegarde
+    "source.fixAll.eslint": "explicit"
+  },
+  // Configuration ESLint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.format.enable": true,
+  // Utilise ESLint comme formateur par défaut pour JS/TS
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
+}
