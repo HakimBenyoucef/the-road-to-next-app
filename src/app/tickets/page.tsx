@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { initialTickets } from "@/src/data";
+import { initialTickets } from "@/data";
+import { ticketDetailPath } from "@/paths";
 
 const TicketsPage = () => {
     return (
@@ -9,15 +10,15 @@ const TicketsPage = () => {
             <br />
             <ul>
                 {initialTickets.map(ticket => (
-                   <> <li key={ticket.id}>
+                   <div key={ticket.id}> <li>
                         <h3>{ticket?.title}</h3>
                         <p>{ticket?.description}</p>
                     </li>
-                    <Link href={`/tickets/${ticket.id}`} className="text-blue-500 underline">
+                    <Link href={ticketDetailPath(ticket.id)} className="text-blue-500 underline">
                         View Ticket {ticket.id}
                     </Link>
                     <br />
-                    </>
+                    </div>
                 ))}
             </ul>
         </div>

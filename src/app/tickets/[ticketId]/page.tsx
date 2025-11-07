@@ -2,7 +2,7 @@ type TicketsPageProps = {
     params : Promise<{ ticketId: string }>;
 }
 
-import  {initialTickets} from '@/src/data';
+import  {initialTickets} from '@/data';
 
 const TicketsPage = async ({params} : TicketsPageProps) => {
     const { ticketId } = await params;
