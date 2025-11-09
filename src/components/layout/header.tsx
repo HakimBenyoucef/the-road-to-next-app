@@ -4,6 +4,8 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { ticketPath } from "@/paths";
 
+import ThemeSwitcher from "../theme/theme-switcher";
+
 export default function Header() {
   return (
     <nav
@@ -14,13 +16,14 @@ export default function Header() {
                     w-full flex py-2.5 px-5 justify-between
                   "
     >
-      <div>
+      <div className="flex align-center gap-x-2">
         <Link href="/" className={buttonVariants({ variant: "ghost" })}>
           <LucideKanban />
           <h1 className="ml-2 text-lg font-semibold">Ticket Bounty</h1>
         </Link>
       </div>
-      <div>
+      <div className="flex align-center gap-x-2">
+        <ThemeSwitcher />
         <Link
           href={ticketPath()}
           className={buttonVariants({ variant: "default" })}
