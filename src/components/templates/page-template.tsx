@@ -1,5 +1,4 @@
 import PageHeader from "@/components/layout/heading";
-import { Separator } from "@/components/ui/separator";
 
 interface PageTemplateProps {
   title: string;
