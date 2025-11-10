@@ -6,13 +6,12 @@ import Link from "next/link";
 
 import PlaceHolder from "@/components/layout/placeholder";
 import { Button } from "@/components/ui/button";
-import { initialTickets } from "@/data";
 import TicketItem from "@/features/ticket/components/ticket-item";
+import { getTicket } from "@/features/ticket/queries/get-ticket";
 import { ticketPath } from "@/paths";
 
-const TicketsPage = async ({ params }: TicketsPageProps) => {
-  const { ticketId } = await params;
-  const ticket = initialTickets.find((ticket) => ticket.id === ticketId);
+const TicketPage = async ({ params }: TicketsPageProps) => {
+  const ticket = await getTicket((await params).ticketId);
 
   if (!ticket) {
     return (
@@ -34,4 +33,4 @@ const TicketsPage = async ({ params }: TicketsPageProps) => {
   );
 };
 
-export default TicketsPage;
+export default TicketPage;

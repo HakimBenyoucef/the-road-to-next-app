@@ -21,8 +21,6 @@ type TicketItemProps = {
 };
 
 const TicketItem = ({ ticket, isDetailedView }: TicketItemProps) => {
-  console.log("Where am I rendered? TicketItem");
-
   const detailsButton = (
     <Button variant="outline" asChild>
       <Link
