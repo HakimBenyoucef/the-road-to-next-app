@@ -2,7 +2,7 @@ import { LucideKanban } from "lucide-react";
 import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
-import { ticketPath } from "@/paths";
+import { ticketsPath } from "@/paths";
 
 import ThemeSwitcher from "../theme/theme-switcher";
 
@@ -25,7 +25,7 @@ export default function Header() {
       <div className="flex align-center gap-x-2">
         <ThemeSwitcher />
         <Link
-          href={ticketPath()}
+          href={ticketsPath()}
           className={buttonVariants({ variant: "default" })}
         >
           Tickets
