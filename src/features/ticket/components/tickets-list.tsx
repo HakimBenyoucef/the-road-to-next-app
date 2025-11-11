@@ -1,5 +1,6 @@
+import { Ticket } from "@prisma/client";
+
 import { getTickets } from "../queries/get-tickets";
-import { Ticket } from "../types";
 
 import TicketItem from "./ticket-item";
 
