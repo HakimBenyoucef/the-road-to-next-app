@@ -1,6 +1,6 @@
 import { CardCompact } from "@/components/layout/card-compact";
 
-import { TicketCreateForm } from "./ticket-create-form";
+import { TicketUpsertForm } from "./ticket-upsert-form";
 
 const TicketCreateCard = () => {
   return (
@@ -8,7 +8,7 @@ const TicketCreateCard = () => {
       className="w-full max-w-[420px] self-center"
       title="Create a new ticket"
       description="A new ticket will be created"
-      content={<TicketCreateForm />}
+      content={<TicketUpsertForm ticket={undefined} />}
     />
   );
 };
