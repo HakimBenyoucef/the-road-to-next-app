@@ -3,6 +3,8 @@
 import { useActionState } from "react";
 import { Ticket } from "@prisma/client";
 
+import FieldError from "@/components/forms/field-error";
+import Form from "@/components/forms/form";
 import { SubmitButton } from "@/components/forms/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,10 +19,11 @@ type TicketUpsertFormProps = {
 const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
   const [actionState, formAction] = useActionState(
     upsertTicket.bind(null, ticket?.id),
-    { message: "" }
+    { message: "", fieldErrors: {} }
   );
+
   return (
-    <form action={formAction} className="flex flex-col gap-2">
+    <Form action={formAction} actionState={actionState}>
       <Input id="id" name="id" value={ticket?.id} type="hidden" />
       <Label htmlFor="title">Title</Label>
       <Input
@@ -30,6 +33,7 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
           (actionState.payload?.get("title") as string) ?? ticket?.title
         }
       />
+      <FieldError acitonState={actionState} fieldName="title" />
       <Label htmlFor="content">Content</Label>
       <Textarea
         id="content"
@@ -38,9 +42,9 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
           (actionState.payload?.get("content") as string) ?? ticket?.content
         }
       />
+      <FieldError acitonState={actionState} fieldName="content" />
       <SubmitButton label={ticket ? "Update" : "Create"} />
-      {actionState.message && <p>{actionState.message}</p>}
-    </form>
+    </Form>
   );
 };
 

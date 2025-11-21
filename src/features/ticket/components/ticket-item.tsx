@@ -8,7 +8,6 @@ import {
 import Link from "next/link";
 
 import { deleteTicket } from "@/app/tickets/actions/delete-ticket";
-import { editTicket } from "@/app/tickets/actions/edit-ticket";
 import { Button } from "@/components/ui/button";
 import {
   Card,
