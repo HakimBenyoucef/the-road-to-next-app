@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@prisma/client':
-        specifier: ^6.19.0
+        specifier: 6.19.0
         version: 6.19.0(prisma@6.19.0(typescript@5.9.3))(typescript@5.9.3)
       '@radix-ui/react-label':
         specifier: ^2.1.8
@@ -85,7 +85,7 @@ importers:
         specifier: ^12.1.1
         version: 12.1.1(eslint@9.39.1(jiti@2.6.1))
       prisma:
-        specifier: ^6.19.0
+        specifier: 6.19.0
         version: 6.19.0(typescript@5.9.3)
       tailwindcss:
         specifier: ^4
