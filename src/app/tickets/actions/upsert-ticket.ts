@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
+import { setCookie } from "@/actions/cookies";
 import {
   ActionState,
   formErrorToActionState,
@@ -42,7 +43,7 @@ export const upsertTicket = async (
   revalidatePath(ticketsPath());
 
   if (id) {
-    console.log(`Ticket updated with id: ${id}`);
+    await setCookie("toast", "Ticket updated successfully");
     redirect(ticketDetailPath(id));
   }
 
