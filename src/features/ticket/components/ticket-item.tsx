@@ -1,24 +1,27 @@
 import { Ticket } from "@prisma/client";
 import clsx from "clsx";
 import {
+  LucideMoreVertical,
   LucidePencil,
   LucideSquareArrowOutUpRight,
   LucideTrash,
 } from "lucide-react";
 import Link from "next/link";
 
-import { deleteTicket } from "@/app/tickets/actions/delete-ticket";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { editTicketPath, ticketDetailPath } from "@/paths";
 
 import { TICKET_ICONS } from "../constants";
+import { toCurrencyFromCent } from "@/utils/to-currency-from-cent";
+import { TicketMoreMenu } from "./ticket-more-menu";
 
 type TicketItemProps = {
   ticket: Ticket;
@@ -47,12 +50,23 @@ const TicketItem = ({ ticket, isDetailedView }: TicketItemProps) => {
     </Button>
   );
 
-  const deleteButton = (
-    <form action={deleteTicket.bind(null, ticket.id)}>
-      <Button variant="outline" size="icon">
-        <LucideTrash className="h-4 w-4" />
-      </Button>
-    </form>
+  // const deleteButton = (
+  //   <form action={deleteTicket.bind(null, ticket.id)}>
+  //     <Button variant="outline" size="icon">
+  //       <LucideTrash className="h-4 w-4" />
+  //     </Button>
+  //   </form>
+  // );
+
+  const moreMenu = (
+    <TicketMoreMenu
+      ticket={ticket}
+      trigger={
+        <Button size={"icon"} variant={"outline"}>
+          <LucideMoreVertical className="h-4 w-4" />
+        </Button>
+      }
+    />
   );
 
   return (
@@ -85,10 +99,19 @@ const TicketItem = ({ ticket, isDetailedView }: TicketItemProps) => {
             {ticket.content}
           </CardDescription>
         </CardContent>
+        <CardFooter className="flex justify-between">
+          <p className="text-sm text-muted-foreground">
+            Bounty: {toCurrencyFromCent(ticket.bounty)}
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Deadline: {ticket.deadline}
+          </p>
+        </CardFooter>
       </Card>
       <div className="flex flex-col gap-y-2">
-        {!isDetailedView ? detailsButton : deleteButton}
+        {!isDetailedView && detailsButton}
         {editButton}
+        {moreMenu}
       </div>
     </div>
   );

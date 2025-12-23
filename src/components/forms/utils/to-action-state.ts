@@ -10,7 +10,7 @@ export type ActionState = {
 
 export const formErrorToActionState = (
   error: unknown,
-  formData: FormData
+  formData?: FormData
 ): ActionState => {
   let message = "Failed to upsert ticket";
   let fieldErrors: Record<string, string[]> = {};

@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 import PlaceHolder from "@/components/layout/placeholder";
-import { RedirectToast } from "@/components/redirect-toast";
 import Spinner from "@/components/spinner";
 import PageTemplate from "@/components/templates/page-template";
 import TicketsList from "@/features/ticket/components/tickets-list";
@@ -23,8 +22,7 @@ const TicketsPage = () => {
           <TicketsList />
         </Suspense>
       </ErrorBoundary>
-      <RedirectToast />
-    </PageTemplate>
+    </PageTemplate> 
   );
 };
 

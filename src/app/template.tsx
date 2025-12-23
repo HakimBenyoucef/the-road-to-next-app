@@ -1,5 +1,15 @@
-type RootTemplateProps = { children: React.ReactNode }
-    
+import { RedirectToast } from "@/components/redirect-toast";
+
+type RootTemplateProps = { children: React.ReactNode };
+
 export default function Template({ children }: RootTemplateProps) {
-  return <div>{children}</div>
+  console.log("template");
+  return (
+    <>
+      <div>{children}</div>
+      <div>
+        <RedirectToast />
+      </div>
+    </>
+  );
 }
